@@ -10,12 +10,12 @@ export class TodoController {
 
   constructor(private readonly todoService: TodoService) {}
   
-  // @Get()
-  // async findAll(): Promise<TodoListDto> {
-  //   const todos = await this.todoService.getAllTodo()
+  @Get()
+  async findAll(): Promise<TodoListDto> {
+    const todos = await this.todoService.getAllTodo()
 
-  //   return toPromise({ todos })
-  // }
+    return toPromise({ todos })
+  }
 
   @Get(":id")
   async findOne(@Param("id") id: string): Promise<TodoDto> {
