@@ -12,6 +12,10 @@ export class TodoService {
 
   todos: TodoEntity[] = todos
 
+  async getAllTodo(): Promise<TodoDto[]>{
+    return toPromise(this.todos.map(todo => toTodoDto(todo)))
+  }
+
   async getOneTodo(id: string): Promise<TodoDto> {
     const todo = this.todos.find(todo => todo.id === id)
 
